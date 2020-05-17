@@ -2,19 +2,17 @@
 window.addEventListener("load", function() {
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      let missionData = [];
       let pilotNameInput = document.querySelector("input[name=pilotName]");
       let copilotNameInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
       let cargoMassInput = document.querySelector("input[name=cargoMass]");
-      missionData.push(document.getElementById("input").value);
-      console.log(missionData);
-      // if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
-      //    alert("All fields are required!");
-      // } else if (isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value){
-      //    alert("Please enter valid information for each field!");
-      // }
+      if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
+         alert("All fields are required!");
+      }
+      if (isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value)) {
+         alert("Please enter valid information for each field!");
+      }
+      event.preventDefault();
 
 
       form.addEventListener("submit", function(event) {
@@ -65,6 +63,5 @@ window.addEventListener("load", function() {
          });
       });
    });
-
 });
 
