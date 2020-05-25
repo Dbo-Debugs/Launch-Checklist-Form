@@ -2,6 +2,7 @@
 window.addEventListener("load", function() {
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
+      event.preventDefault();
       let pilotNameInput = document.querySelector("input[name=pilotName]");
       let copilotNameInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
@@ -9,13 +10,12 @@ window.addEventListener("load", function() {
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
       }
-      if (isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value)) {
+      else if (isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value)) {
          alert("Please enter valid information for each field!");
-      }
-      event.preventDefault();
+      } else {
 
 
-      form.addEventListener("submit", function(event) {
+
          document.getElementById("faultyItems").style.visibility = "visible";
          document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotNameInput.value} is ready for launch`;
          document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilotNameInput.value} is ready for launch`;
@@ -38,8 +38,8 @@ window.addEventListener("load", function() {
             document.getElementById("launchStatus").style.color = "red";
          }
 
-      });
 
+      }
 
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
          response.json().then(function(json) {
