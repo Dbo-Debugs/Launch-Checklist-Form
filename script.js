@@ -14,8 +14,6 @@ window.addEventListener("load", function() {
          alert("Please enter valid information for each field!");
       } else {
 
-
-
          document.getElementById("faultyItems").style.visibility = "visible";
          document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotNameInput.value} is ready for launch`;
          document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilotNameInput.value} is ready for launch`;
@@ -37,8 +35,6 @@ window.addEventListener("load", function() {
             document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
             document.getElementById("launchStatus").style.color = "red";
          }
-
-
       }
 
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
